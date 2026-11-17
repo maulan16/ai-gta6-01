@@ -1,4 +1,5 @@
 // NEON HARBOR — audio.js : tiny WebAudio synth, fully guarded (headless-safe).
+// v2 visual pass (2026-11-18): audio untouched — only the renderer zooms 2.5x.
 export function createAudio() {
   let ctx = null, master = null, engineOsc = null, engineGain = null, muted = false;
   function ensure() {

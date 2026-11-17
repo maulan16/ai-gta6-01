@@ -49,11 +49,12 @@ export function stageShot(name, world) {
     car.x = 900; car.y = 1000; car.angle = 0; car.speed = 380; car.health = 62; car.wrecked = false;
     p.inCar = car; p.x = car.x; p.y = car.y; p.health = 78; p.ammo = 12;
     s.wanted = 4; s.missionIndex = 1; s.missionMsg = 'Lose the heat — stay out of sight of the police.';
-    s.banner = '4 STARS — HARBOR PD ROADBLOCK AHEAD'; s.bannerT = 3;
+    s.banner = '4 STARS — PD ROADBLOCK AHEAD'; s.bannerT = 3;
     run(world, 1.2, () => driveCtl(world, 2600, 1000));
     // roadblock: two cruisers parked across the avenue ahead of the player
     // (placed after the simulation so they stay exactly in frame).
-    const bx = p.x + 400;
+    // v2: visible window is only ~512 world units wide, so +400 was off-frame; +220 sits near the right edge.
+    const bx = p.x + 220;
     for (const [ox, oy, ang] of [[bx, 962, Math.PI / 2], [bx + 8, 1038, Math.PI / 2]]) {
       const c = { type: 'police', x: ox, y: oy, angle: ang, speed: 0, w: 47, h: 22, color: '#1c2f6e', health: 100, wrecked: false, traffic: false, axis: null, dir: 1, lane: 0, police: true, siren: 0, smoke: 0 };
       s.cars.push(c);
@@ -83,8 +84,9 @@ export function stageShot(name, world) {
   s.banner = 'MISSION 1 — THE PICKUP'; s.bannerT = 4;
   run(world, 2.2, () => driveCtl(world, 2400, 600));
   // make sure two cruisers are visibly on our tail
+  // v2: at 2.5x zoom the trailing cops must sit closer (-90/-150, not -150/-240) to stay in frame.
   const cops = s.cars.filter((c) => c.police && !c.wrecked);
-  cops.slice(0, 2).forEach((c, i) => { c.x = p.x - 150 - i * 90; c.y = 600 + (i === 0 ? 34 : -30); c.angle = 0; c.speed = 330; });
+  cops.slice(0, 2).forEach((c, i) => { c.x = p.x - 90 - i * 60; c.y = 600 + (i === 0 ? 26 : -24); c.angle = 0; c.speed = 330; });
   run(world, 0.3, () => driveCtl(world, 2400, 600));
   return { screen: SCREEN_PLAY };
 }

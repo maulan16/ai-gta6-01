@@ -1,4 +1,5 @@
 // NEON HARBOR — main.ts (written for the make.fun gta6-01 entry).
+// v2 visual pass (2026-11-18): same handoff — game/ + screenshots/ + dossier.json.
 // The game is this directory's game/ folder: plain static files a desktop browser
 // loads offline (game/index.html and its ES modules, no library, no network request).
 // This program hands the entry in: it copies game/ and screenshots/ from beside this

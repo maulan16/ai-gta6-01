@@ -1,4 +1,5 @@
 // NEON HARBOR — random.js : seeded RNG (mulberry32) + small helpers.
+// v2 visual pass (2026-11-18): RNG untouched — the zoomed renderer reuses the same seeds.
 export function mulberry32(seed) {
   let a = seed >>> 0;
   return function () {

@@ -1,4 +1,5 @@
 // NEON HARBOR — input.js : keyboard + mouse state, edge-triggered presses.
+// v2 visual pass (2026-11-18): mouse coords stay screen px; main.js divides by ZOOM.
 export function createInput(canvas) {
   const keys = {};
   const mouse = { x: 640, y: 360, down: false, clicked: false };

@@ -83,16 +83,18 @@ function runGame() {
     announce(world.state.gameOver === 'busted' ? 'Busted by Harbor PD.' : 'Wasted.');
   }
   function camera() {
+    // v2: the visible window is VIEW/ZOOM world units, centred on the player.
     const p = world.state.player;
     return {
-      x: clamp(p.x - CFG.VIEW_W / 2, 0, CFG.WORLD_W - CFG.VIEW_W),
-      y: clamp(p.y - CFG.VIEW_H / 2, 0, CFG.WORLD_H - CFG.VIEW_H),
+      x: clamp(p.x - CFG.VIEW_W / CFG.ZOOM / 2, 0, CFG.WORLD_W - CFG.VIEW_W / CFG.ZOOM),
+      y: clamp(p.y - CFG.VIEW_H / CFG.ZOOM / 2, 0, CFG.WORLD_H - CFG.VIEW_H / CFG.ZOOM),
     };
   }
   function buildCtl() {
     const k = input.keys, m = input.mouse, cam = camera();
     const p = world.state.player;
-    const wx = cam.x + m.x, wy = cam.y + m.y;
+    // v2: mouse is screen px — divide by ZOOM to get world coords under the zoomed camera.
+    const wx = cam.x + m.x / CFG.ZOOM, wy = cam.y + m.y / CFG.ZOOM;
     return {
       up: input.down('w', 'arrowup'), down: input.down('s', 'arrowdown'),
       left: input.down('a', 'arrowleft'), right: input.down('d', 'arrowright'),

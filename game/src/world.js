@@ -1,5 +1,6 @@
 // NEON HARBOR — world.js : the city, its people, cars, police, wanted level and missions.
 // No drawing here — state and rules only. All places, names and art are original.
+// v2 visual pass (2026-11-18): rules untouched — only render.js reads the same state closer up.
 import { CFG, CAR_TYPES, MISSIONS, PALETTE } from './config.js';
 import { mulberry32, pick, range, clamp, dist, angDiff, lerp } from './random.js';
 

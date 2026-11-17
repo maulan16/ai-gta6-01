@@ -6,6 +6,8 @@
 
 **NEON HARBOR** is an original open-world crime game for the make.fun **gta6-01** ("Make GTA 6") competition — a 2D top-down open-world game in the spirit of the classic era, built with plain Canvas 2D, no libraries and no network requests. Everything in it — the city, the characters, the vehicles, the story — is original.
 
+> v2 visual pass (2026-11-18): the camera now zooms 2.5x, so cars render big with hoods, glass, wheels and lights, people are visible person sprites, and roads have crosswalks and curbs. Gameplay, missions and story are unchanged.
+
 ## The story
 
 Jace Rook is out of prison and owes fixer **Madame Voss** one last job, while **Detective Kline** turns the whole harbor against him. Steal cars, lose the heat, make the delivery.

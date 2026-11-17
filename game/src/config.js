@@ -3,6 +3,9 @@
 export const CFG = {
   WORLD_W: 3200, WORLD_H: 2400,
   VIEW_W: 1280, VIEW_H: 720,
+  // v2 visual pass (2026-11-18): the camera zooms 2.5x, so the visible window is
+  // ~512x288 world units and cars/people read as big detailed sprites, not dots.
+  ZOOM: 2.5,
   ROAD_W: 96, BLOCK: 400,
   PLAYER_SPEED: 175, SPRINT: 295,
   CAR_ACCEL: 430, CAR_BRAKE: 720, CAR_MAX: { sedan: 340, taxi: 330, van: 260, sport: 475, police: 435 },
